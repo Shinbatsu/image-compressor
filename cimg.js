@@ -39,3 +39,39 @@ async function compressImage(from, to){
 
 }
 
+
+async function compressDirectoryImages(from, to){
+
+	fs.readdirSync(from).forEach(file => {
+
+		let target_from = path.resolve(from, file),
+			target_to = path.resolve(to, file);
+
+		if(fs.lstatSync(target_from).isDirectory()){
+
+			if(!fs.existsSync(target_to)){
+				fs.mkdirSync(target_to);
+			}
+
+			return compressDirectoryImages(target_from, target_to);
+
+		}else{
+
+			let ext = path.extname(target_from);
+
+			switch(ext){
+
+				case '.jpeg':
+				case '.jpg':
+				case '.png':
+				case '.gif':
+					return compressImage(target_from, target_to);
+
+			}
+
+		}
+
+	});
+
+}
+
