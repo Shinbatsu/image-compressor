@@ -11,7 +11,7 @@ function getFileSize(path){
 }
 
 
-async function compressImage(from, to){
+async function compressImg(from, to){
 
 	try {
 
@@ -40,7 +40,7 @@ async function compressImage(from, to){
 }
 
 
-async function compressDirectoryImages(from, to){
+async function compressDirImages(from, to){
 
 	fs.readdirSync(from).forEach(file => {
 
@@ -53,7 +53,7 @@ async function compressDirectoryImages(from, to){
 				fs.mkdirSync(target_to);
 			}
 
-			return compressDirectoryImages(target_from, target_to);
+			return compressDirImages(target_from, target_to);
 
 		}else{
 
@@ -65,7 +65,7 @@ async function compressDirectoryImages(from, to){
 				case '.jpg':
 				case '.png':
 				case '.gif':
-					return compressImage(target_from, target_to);
+					return compressImg(target_from, target_to);
 
 			}
 
@@ -75,3 +75,14 @@ async function compressDirectoryImages(from, to){
 
 }
 
+
+if(process.argv.length < 3){
+	console.log('Wrong directory'.red);
+	process.exit();
+}
+
+let input = path.resolve(process.argv[2].trim());
+
+let output = process.argv.length < 4
+	? input
+	: path.resolve(process.argv[3].trim());
