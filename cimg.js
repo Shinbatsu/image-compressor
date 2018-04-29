@@ -86,3 +86,19 @@ let input = path.resolve(process.argv[2].trim());
 let output = process.argv.length < 4
 	? input
 	: path.resolve(process.argv[3].trim());
+
+input = path.resolve(input)
+
+if(fs.lstatSync(input).isFile()){
+	compressImg(input, output);
+}else if(fs.lstatSync(input).isDirectory()){
+
+	if(!fs.existsSync(output)){
+		fs.mkdirSync(output);
+	}
+
+	compressDirImages(input, output);
+
+}else{
+	console.log('Wrong input!'.red);
+}
