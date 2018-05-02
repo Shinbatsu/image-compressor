@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "gifsicle": "^5.2.1",
+    "pngquant-bin": "^6.0.1",
+    "sharp": "^0.33.1",
+    "@img/sharp-darwin-arm64": "^0.33.1",
+    "form-data": "^4.0.0",
+    "axios": "^0.27.2",
+    "colors": "^1.4.0",
+    "compress-images": "^2.0.5"
+  },
+  "name": "picture-compress",
+  "description": "",
+  "version": "2.0.2",
+  "main": "index.js",
+  "directories": {},
+  "scripts": {
+    "cimg": "node ./cimg.js",
+    "rimg": "node ./rimg.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shinbatsu/image-compressor.git"
+  },
+  "author": "IN4IN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shinbatsu/image-compressor/issues"
+  },
+  "bin": {
+    "cimg": "./cimg.js",
+    "rimg": "./rimg.js"
+  },
+  "homepage": "https://github.com/Shinbatsu/image-compressor#readme"
+}
