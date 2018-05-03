@@ -22,14 +22,14 @@
     "type": "git",
     "url": "git+https://github.com/Shinbatsu/image-compressor.git"
   },
-  "author": "IN4IN",
+  "author": "Shinbatsu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Shinbatsu/image-compressor/issues"
   },
   "bin": {
-    "cimg": "./cimg.js",
-    "rimg": "./rimg.js"
+    "cmimg": "./cmimg.js",
+    "rmimg": "./rmimg.js"
   },
   "homepage": "https://github.com/Shinbatsu/image-compressor#readme"
 }
