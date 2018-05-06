@@ -32,5 +32,40 @@ async function exifRemoveImage(from, to){
     }
 
     return false;
+}
+
+
+async function exifRemoveDirectoryImages(from, to){
+
+    fs.readdirSync(from).forEach(file => {
+
+        let target_from = path.resolve(from, file),
+            target_to = path.resolve(to, file);
+
+        if(fs.lstatSync(target_from).isDirectory()){
+
+            if(!fs.existsSync(target_to)){
+                fs.mkdirSync(target_to);
+            }
+
+            return exifRemoveDirectoryImages(target_from, target_to);
+
+        }else{
+
+            let ext = path.extname(target_from);
+
+            switch(ext){
+
+                case '.jpeg':
+                case '.jpg':
+                case '.png':
+                case '.gif':
+                    return exifRemoveImage(target_from, target_to);
+
+            }
+
+        }
+
+    });
 
 }
