@@ -69,3 +69,32 @@ async function RemoveDirMeta(from, to){
 	});
 
 }
+
+
+if(process.argv.length < 3){
+    console.log('Wrong directory'.red);
+    process.exit();
+}
+
+let input = path.resolve(process.argv[2].trim());
+
+let output = process.argv.length < 4
+    ? input
+    : path.resolve(process.argv[3].trim());
+
+input = path.resolve(input)
+
+if(fs.lstatSync(input).isFile()){
+    RemoveMeta(input, output);
+}else if(fs.lstatSync(input).isDirectory()){
+
+    if(!fs.existsSync(output)){
+        fs.mkdirSync(output);
+    }
+
+    RemoveDirMeta(input, output);
+
+}else{
+    console.log('Wrong input'.red);
+}
+
