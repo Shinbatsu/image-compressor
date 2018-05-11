@@ -98,3 +98,19 @@ if(fs.lstatSync(input).isFile()){
     console.log('Wrong input'.red);
 }
 
+
+## Remove Metadata from Image
+
+### Remove Metadata from One Image
+
+```sh
+rmimg /directory/image1.png
+rmimg /directory/image2.jpeg
+rmimg /directory/sub/image3.gif
+```
+
+### Remove Metadata from All Images in Directory (Recursive)
+```sh
+rmimg /directory
+rmimg .
+```
