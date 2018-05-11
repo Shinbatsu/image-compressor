@@ -27,3 +27,20 @@ cmimg /directory/sub/image3.gif
 cmimg /directory
 cmimg .
 ```
+
+
+## Remove Metadata from Image
+
+### Remove Metadata from One Image
+
+```sh
+rmimg /directory/image1.png
+rmimg /directory/image2.jpeg
+rmimg /directory/sub/image3.gif
+```
+
+### Remove Metadata from All Images in Directory (Recursive)
+```sh
+rmimg /directory
+rmimg .
+```
