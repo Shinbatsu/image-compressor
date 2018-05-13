@@ -15,8 +15,8 @@
   "main": "index.js",
   "directories": {},
   "scripts": {
-    "cimg": "node ./cimg.js",
-    "rimg": "node ./rimg.js"
+    "cmimg": "node ./cmimg.js",
+    "rmimg": "node ./rmimg.js"
   },
   "repository": {
     "type": "git",
